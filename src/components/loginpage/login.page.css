@@ -1,0 +1,6 @@
+.formBar{
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid grey;
+  cursor: pointer;
+}
