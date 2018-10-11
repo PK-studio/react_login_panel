@@ -17,8 +17,8 @@ class LoginPage extends Component {
   activate(activElem){
     this.setState({
       activeNow: activElem,
-      colorTitle1: activElem ==1 ? 'black' : 'grey',
-      colorTitle2: activElem ==2 ? 'black' : 'grey'
+      colorTitle1: activElem == 1 ? 'black' : 'grey',
+      colorTitle2: activElem == 2 ? 'black' : 'grey'
     })
   }
 

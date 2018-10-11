@@ -10,7 +10,8 @@ class LoginForm extends Component {
       identifier: '',
       password: '',
       errors: {},
-      isValid: true
+      isValid: true,
+      user: null
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -22,14 +23,18 @@ class LoginForm extends Component {
   }
 
   isValid(){
-    let {errors, isValid} = validateLogin(this.state);
-    this.setState({errors: errors})
+    let {errors, isValid, user} = validateLogin(this.state);
+    console.log(user)
+    this.setState({
+      user: user,
+      errors: errors 
+    })
     return isValid
   }
 
   onSubmit(){
-    if (this.isValid()){
-      console.log('submited... send data to server')
+    if ( this.isValid() ){
+      console.log('isValid... user name is ' + this.state.user)
     }
   }
 
