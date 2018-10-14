@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import validateLogin from './validator'
+import validateLogin from './validation'
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './login.form.css';
 
@@ -10,30 +10,23 @@ class LoginForm extends Component {
       identifier: '',
       password: '',
       errors: {},
-      isValid: true,
       user: null
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.isValid = this.isValid.bind(this)
   }
 
   onChange(e){
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  isValid(){
-    let {errors, isValid, user} = validateLogin(this.state);
-    this.setState({
-      user: user,
-      errors: errors 
-    })
-    return isValid
-  }
-
   onSubmit(){
-    if ( this.isValid() ){
-      console.log('isValid... user name is ' + this.state.user)
+    let {errors, isValid, userData} = validateLogin(this.state);
+    if (isValid){
+      console.log('isValid... user name is ' + userData.name)
+      this.setState({user: userData})
+    }else{
+      this.setState({errors: errors})
     }
   }
 

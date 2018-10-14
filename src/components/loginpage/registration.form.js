@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class RegistationForm extends Component {
+class RegistrationForm extends Component {
   render() { 
     return ( 
       <h2>registerForm will be here</h2>
@@ -8,4 +8,4 @@ class RegistationForm extends Component {
   }
 }
  
-export default RegistationForm;
+export default RegistrationForm;

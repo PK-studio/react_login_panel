@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Col } from 'reactstrap';
 import LoginForm from './login.form';
-import RegistationForm from './registation.form'
+import RegistrationForm from './registration.form'
 import "./login.page.css";
 
 class LoginPage extends Component {
@@ -27,7 +27,7 @@ class LoginPage extends Component {
       case 1:
         return <LoginForm/>
       case 2:
-        return <RegistationForm/>
+        return <RegistrationForm/>
       default:
         return
     }
