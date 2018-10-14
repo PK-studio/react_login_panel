@@ -24,7 +24,6 @@ class LoginForm extends Component {
 
   isValid(){
     let {errors, isValid, user} = validateLogin(this.state);
-    console.log(user)
     this.setState({
       user: user,
       errors: errors 
@@ -57,7 +56,7 @@ class LoginForm extends Component {
                 placeholder="email address"
                 onChange = {this.onChange}
               />
-              <p className="warning">{this.state.errors.identifier}</p>
+              <p className="warning">{errors.identifier}</p>
             </Col>
           </FormGroup>
 
@@ -74,7 +73,7 @@ class LoginForm extends Component {
                 placeholder="password"
                 onChange = {this.onChange}
               />
-              <p className="warning">{this.state.errors.password}</p>
+              <p className="warning">{errors.password}</p>
             </Col>
           </FormGroup>
           <div className='submitBtn'>

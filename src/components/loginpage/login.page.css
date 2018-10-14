@@ -1,6 +1,16 @@
 .formBar{
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  border-bottom: 3px solid grey;
   cursor: pointer;
+  padding-bottom: 30px;
+}
+.formBar .colForm{
+  color: rgb(185, 185, 185);
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid rgb(185, 185, 185);
+}
+
+.formBar .colForm.active{
+  color: #212529;
+  border-bottom: 3px solid #212529;
 }
