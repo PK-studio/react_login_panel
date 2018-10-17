@@ -14,7 +14,7 @@ const fakeUserData = {
   }  
 ]}
 
-export default function validateLogin(data){
+export default function LoginValidation(data){
   let errors = {};
   let user = {};
 
@@ -34,7 +34,8 @@ export default function validateLogin(data){
 
   let matchWithDataBase = (email, password) => {
     return fakeUserData.users.find(element =>{
-      if(element.email === email && element.password === password){
+      if(element.email === email && 
+        element.password === password){
         return element;
       }
       else{
@@ -53,7 +54,7 @@ export default function validateLogin(data){
     }
   }
 
-  let checkPasswor = () => {
+  let checkPassword = () => {
     if(data.password ===''){
       errors.password ='* provide password'
     }
@@ -69,7 +70,7 @@ export default function validateLogin(data){
   }
 
   checkEmail()
-  checkPasswor()
+  checkPassword()
   findUser()
 
   return {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import validateLogin from './validation'
+import LoginValidation from './login.validation'
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './login.form.css';
 
@@ -21,7 +21,7 @@ class LoginForm extends Component {
   }
 
   onSubmit(){
-    let {errors, isValid, userData} = validateLogin(this.state);
+    let {errors, isValid, userData} = LoginValidation(this.state)
     if (isValid){
       console.log('isValid... user name is ' + userData.name)
       this.setState({user: userData})
@@ -69,6 +69,7 @@ class LoginForm extends Component {
               <p className="warning">{errors.password}</p>
             </Col>
           </FormGroup>
+
           <div className='submitBtn'>
             <Button color="success" onClick={this.onSubmit}>Login</Button>
           </div>
