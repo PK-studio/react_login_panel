@@ -1,5 +1,6 @@
 import validator from 'validator';
 
+
 const fakeUserData = {
   users: [
   {
@@ -14,19 +15,57 @@ const fakeUserData = {
   }  
 ]}
 
-export default function LoginValidation(data){
+function isEmpty(obj){
+  let val = true;
+  for (let key in obj){
+    if(obj.hasOwnProperty(key)){
+      val = false;
+    }
+  }
+  return val;
+}
+
+
+
+function validateRegistration(data){
+  const errorList = [
+    "* provide correct email adress",
+    '* provide password',
+    "* passwords do not match"
+  ]
+  let errors = {};
+
+  let checkEmail = () => {
+    if(!validator.isEmail(data.email)){
+      errors.email = errorList[0]
+    }
+  }
+
+  let checkPasswords = (...passwords) => {
+    console.log(passwords[0], passwords[1])
+    passwords.forEach((pass, index) => {
+      if(pass ===''){
+        errors['password'+index] = errorList[1]
+      }else if(passwords[0] != passwords[1]){
+        errors['password1'] = errorList[2]
+      }
+    })
+  }
+
+  checkEmail()
+  checkPasswords(data.password0, data.password1)
+
+  return {
+    errors,
+    isValid: isEmpty(errors)
+  }
+}
+
+
+
+function validateLogin(data){
   let errors = {};
   let user = {};
-
-  let isEmpty = (obj) => {
-    let val = true;
-    for (let key in obj){
-      if(obj.hasOwnProperty(key)){
-        val = false;
-      }
-    }
-    return val;
-  }
 
   let existInDataBase = email => {
     return fakeUserData.users.some(element => element.email === email)
@@ -79,3 +118,5 @@ export default function LoginValidation(data){
     userData: user
   }
 }
+
+export {validateRegistration, validateLogin}

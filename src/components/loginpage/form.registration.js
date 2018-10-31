@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import RegistrationValidation from './registration.validation';
+import { validateRegistration } from './validation';
 
 class RegistrationForm extends Component {
   constructor(){
@@ -21,9 +21,10 @@ class RegistrationForm extends Component {
   }
 
   onSubmit(){
-    let {errors, isValid, newUserData} = RegistrationValidation(this.state)
+    let {errors, isValid} = validateRegistration(this.state)
     if(isValid){
-      this.setState({newUser: newUserData})
+      console.log('User has been registred')
+      this.setState({errors: errors})
     }else{
       console.log(errors)
       this.setState({errors: errors})
@@ -66,7 +67,7 @@ class RegistrationForm extends Component {
               placeholder="password"
               onChange = {this.onChange}
             />
-            <p className="warning">{errors.password[0]}</p>
+            <p className="warning">{errors.password0}</p>
           </Col>
         </FormGroup>
         
@@ -83,7 +84,7 @@ class RegistrationForm extends Component {
               placeholder="repeat password"
               onChange = {this.onChange}
             />
-            <p className="warning">{errors.password[1]}</p>
+            <p className="warning">{errors.password1}</p>
           </Col>
         </FormGroup>
         

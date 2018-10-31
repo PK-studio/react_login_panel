@@ -9,8 +9,13 @@
   padding-bottom: 30px;
   border-bottom: 3px solid rgb(185, 185, 185);
 }
-
 .formBar .colForm.active{
   color: #212529;
   border-bottom: 3px solid #212529;
+}
+.warning{
+  color: red;
+}
+.submitBtn{
+  text-align: right;
 }

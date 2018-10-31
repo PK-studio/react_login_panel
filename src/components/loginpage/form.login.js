@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import LoginValidation from './login.validation'
+import { validateLogin } from './validation';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import './login.form.css';
 
 class LoginForm extends Component {
   constructor(){
@@ -21,7 +20,7 @@ class LoginForm extends Component {
   }
 
   onSubmit(){
-    let {errors, isValid, userData} = LoginValidation(this.state)
+    let {errors, isValid, userData} = validateLogin(this.state)
     if (isValid){
       console.log('isValid... user name is ' + userData.name)
       this.setState({user: userData})

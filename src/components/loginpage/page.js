@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Col } from 'reactstrap';
-import LoginForm from './login.form';
-import RegistrationForm from './registration.form'
-import "./login.page.css";
+import LoginForm from './form.login';
+import RegistrationForm from './form.registration'
+import "./page.css";
 
 class LoginPage extends Component {
   constructor(){

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginPage from './components/loginpage/login.page';
+import LoginPage from './components/loginpage/page';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 
